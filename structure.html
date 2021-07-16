@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <title> Home page </title>  
+   
+  </head>
+  <body>
+    <h1>Predict song's success</h1>
+    <h3>You can find your song's parameters here:</h3>
+    <a href= "https://developer.spotify.com/console/get-audio-features-track/">Link to Spotify console (song)</a> <br>
+    <a href= "https://developer.spotify.com/console/get-artist//">Link to Spotify console (artist)</a> <br>
+    <a href= "https://youtube.com">Link to Youtube tutorial</a> <br>
+    <form action="/send" method="POST">
+      <label for="p1">danceability:</label>
+        <input type="text" id="p1" name="p1"><br><br>
+        <label for="p2">instrumentalness:</label>
+        <input type="text" id="p2" name="p2"><br><br>
+        <label for="p3">energy:</label>
+        <input type="text" id="p3" name="p3"><br><br>
+        <label for="p4">acousticness:</label>
+        <input type="text" id="p4" name="p4"><br><br>
+        <label for="p5">explicit:</label>
+        <input type="text" id="p5" name="p5"><br><br>
+        <label for="p6">speechiness:</label>
+        <input type="text" id="p6" name="p6"><br><br>
+        <label for="p7">valence:</label>
+        <input type="text" id="p7" name="p7"><br><br>
+   
+        <input type="submit" name="form" value="Submit">
+    </form>
+    {{ result }}
+    <h5>This website is based on a machine learning algorithm that performs 95% accuracy, precision, recall and f1 on the test set. 
+      The scope is to predict a song's success based on the data available prior to its realase and to prove that it's possible to predict online content's success</h5>
+  </body>
+
+</html>
