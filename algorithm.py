@@ -26,11 +26,8 @@ def send():
             p8=request.form['p8']
 
             data= pd.read_csv("website_data.csv")
-            #creating binary variable (popular/not popular)
-        #    data=data[data["year"]>2019]
-        #    data['bool_pop']=data['popularity']>60
             print(type(p8))
-            if p8==[]:
+            if p8==[]:  # if the popularity of the artist is unknown predict the popularity of the song wihtout
                 X=data[['danceability', 'instrumentalness', 'energy', 'acousticness', 'explicit', 'speechiness', 'valence']]
                 song=[p1, p2, p3, p4, p5, p6, p7]
             else:
@@ -40,8 +37,6 @@ def send():
 
             knn = KNeighborsClassifier(n_neighbors=1).fit(X, y)
             #'danceability', 'instrumentalness', 'energy', 'acousticness', 'explicit', 'speechiness', 'valence', 'popularity_artist'
-      #list with eight entries from structure.html
-
 
             d=pd.Series(song).values.reshape(1, -1)  #reshaping and converting the list
             result=(knn.predict(d))
@@ -59,12 +54,5 @@ def send():
                 return render_template('structure.html', result="there was an error")
 
 
-        #    if result=='1':
-        #        return render_template('structure.html', result="this song is probably not going to be a success (low_popularity")
-
-        #    elif result=='2':
-        #        return render_template('structure.html', result="this song is maybe going to be a success (medium popularity)")
-        #    elif result=='3':
-        #        return render_template('structure.html', result="this song is probably going to be a success (high popularity)")
 if __name__=='__main__':
     app.run(debug=True)
